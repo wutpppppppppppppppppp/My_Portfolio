@@ -1,0 +1,77 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+body {
+  @apply bg-dark text-offwhite font-sans min-h-screen m-0 p-0;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-serif;
+}
+
+.navbar {
+  @apply p-4 fixed w-full z-10;
+}
+
+.navbar-list {
+  @apply flex justify-end max-md:justify-center space-x-4;
+}
+
+.navbar-item a {
+  @apply text-offwhite cursor-pointer hover:text-white;
+}
+
+/* Other global styles */
+.container {
+  @apply min-h-screen;
+}
+
+.main {
+  @apply w-screen flex-grow;
+}
+
+.section {
+  @apply relative flex items-center justify-center min-h-screen bg-cover bg-scroll;
+}
+
+.overlay {
+  @apply absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center;
+}
+
+.card {
+  @apply bg-gray bg-opacity-30 p-8 m-4 rounded-lg shadow-lg text-white w-full sm:w-1/2 lg:w-1/3;
+}
+
+.text-overlay {
+  @apply p-4 rounded-lg max-md:mt-[20rem];
+}
+
+.projects-grid {
+  @apply grid grid-cols-2 sm:grid-cols-2 gap-6;
+}
+
+.project-card {
+  @apply bg-ash bg-opacity-90 p-4 rounded-lg hover:bg-ash;
+}
+
+.footer {
+  @apply w-full p-6 border-t border-ash text-center;
+}
+
+.footer p {
+  @apply text-gray;
+}
+
+a {
+  @apply text-ash;
+}
+
+/* Parallax effect */
+.parallax {
+  @apply bg-fixed bg-no-repeat bg-[size:110%];
+}
