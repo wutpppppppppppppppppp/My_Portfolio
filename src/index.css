@@ -1,11 +1,10 @@
-/* src/index.css */
+/* src\index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom global styles */
 body {
-  @apply bg-dark text-offwhite font-sans min-h-screen m-0 p-0;
+  @apply bg-dark text-offwhite font-sans min-h-screen m-0 p-0 overflow-x-hidden;
 }
 
 h1,
@@ -26,17 +25,12 @@ h3 {
   @apply text-offwhite cursor-pointer hover:text-white;
 }
 
-/* Other global styles */
-.container {
-  @apply min-h-screen;
-}
-
 .main {
-  @apply w-screen flex-grow;
+  @apply flex-grow w-full flex flex-col overflow-x-hidden;
 }
 
 .section {
-  @apply relative flex items-center justify-center min-h-screen bg-cover bg-scroll;
+  @apply relative flex items-center justify-center min-h-screen w-full bg-cover bg-center overflow-hidden;
 }
 
 .overlay {
@@ -71,7 +65,38 @@ a {
   @apply text-ash;
 }
 
-/* Parallax effect */
 .parallax {
-  @apply bg-fixed bg-no-repeat bg-[size:110%];
+  @apply bg-fixed bg-no-repeat will-change-transform;
+}
+
+@keyframes flowRight {
+  0% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(
+      10px
+    ); /* Adjust the distance you want the icons to move */
+  }
+}
+.icons-container {
+  @apply flex animate-[flowRight_0.9s_ease_forwards] gap-2;
+}
+
+.accordion-item {
+  @apply border-b border-dark;
+  transition: height 0.3s ease; /* Add transition for height */
+}
+
+.accordion-item:last-child {
+  @apply border-none;
+}
+
+.accordion-content {
+  @apply text-offwhite text-xl opacity-0; /* Start with opacity 0 */
+  transition: opacity 0.3s ease; /* Add transition for opacity */
+}
+
+.accordion-item:hover .accordion-content {
+  @apply opacity-100; /* Change opacity to 100% on hover */
 }

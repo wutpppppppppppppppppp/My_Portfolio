@@ -1,4 +1,4 @@
-// src/Navbar.jsx
+// src/(navbar)/page.jsx
 import React from 'react';
 import { Link } from 'react-scroll';
 
