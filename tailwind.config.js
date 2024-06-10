@@ -6,6 +6,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+      },
+    },
+  },
   plugins: [daisyui],
   daisyui: {
     base: true, // applies background color and foreground color for root element by default

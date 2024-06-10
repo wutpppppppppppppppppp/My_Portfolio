@@ -13,7 +13,7 @@ const About = () => {
         <div>
           {aboutTopics.map(({ title, description, icons, links }, index) => (
             <div key={title} tabIndex={index} className="collapse group">
-              <div className="collapse-title text-xl font-medium flex justify-between">
+              <div className="collapse-title text-xl flex justify-between">
                 <h2 className="hover-text-info group-focus:text-info">
                   {title}
                 </h2>

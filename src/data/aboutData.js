@@ -28,6 +28,7 @@ import {
   SiC,
   SiCplusplus,
   SiMysql,
+  SiArm,
 } from "react-icons/si";
 
 const aboutTopics = [
@@ -50,13 +51,13 @@ const aboutTopics = [
     description: [
       {
         category: "Programming Languages",
-        icons: [FaPython, FaJs, FaHtml5, FaCss3Alt, SiC, SiCplusplus],
-        iconName: ["Python", "JavaScript", "HTML", "CSS", "C", "C++"],
+        icons: [FaPython, FaJs, SiC, SiCplusplus, SiArm],
+        iconName: ["Python", "JavaScript", "C", "C++", "ARM Assembly"],
       },
       {
         category: "Web Development",
-        icons: [FaReact, FaNodeJs],
-        iconName: ["React", "Node.js"],
+        icons: [FaReact, FaNodeJs, FaHtml5, FaCss3Alt],
+        iconName: ["React", "Node.js", "HTML", "CSS"],
       },
       {
         category: "Database Management",
@@ -70,13 +71,24 @@ const aboutTopics = [
       },
       {
         category: "Machine Learning Libraries and Knowledge",
-        icons: [SiTensorflow, SiPytorch, SiOpencv],
-        iconName: ["Tensorflow", "Pytorch", "OpenCV"],
-      },
-      {
-        category: "Data Analysis",
-        icons: [SiPandas, SiNumpy, SiPlotly, SiScikitlearn],
-        iconName: ["Pandas", "Numpy", "Plotly", "Scikit-learn"],
+        icons: [
+          SiTensorflow,
+          SiPytorch,
+          SiOpencv,
+          SiPandas,
+          SiNumpy,
+          SiPlotly,
+          SiScikitlearn,
+        ],
+        iconName: [
+          "Tensorflow",
+          "Pytorch",
+          "OpenCV",
+          "Pandas",
+          "Numpy",
+          "Plotly",
+          "Scikit-learn",
+        ],
       },
     ],
     icons: [FaGithub, FaLinkedin, FaKaggle],

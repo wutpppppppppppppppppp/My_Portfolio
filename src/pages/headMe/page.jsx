@@ -4,7 +4,7 @@ const Head = () => {
     <div
       id="head"
       className="hero min-h-screen"
-    //   style={{ backgroundImage: "url(/headPic.jpg)" }}
+      //   style={{ backgroundImage: "url(/headPic.jpg)" }}
     >
       <div className="hero-content text-center">
         <div className="max-w-max">
