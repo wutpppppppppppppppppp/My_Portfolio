@@ -1,16 +1,21 @@
 // src\pages\headMe\page.jsx
-import React from 'react';
-
 const Head = () => {
-    return (
-        <div className="overlay">
-            <div className="text-overlay">
-                <h1 className="text-sm">Gallery</h1>
-                <h2 className="text-[5vmax]">Panyawut Piyasirinanan</h2>
-                <p className="text-end text-xl">Machine learning enthusiast with lots of hobbies.</p>
-            </div>
+  return (
+    <div
+      id="head"
+      className="hero min-h-screen"
+    //   style={{ backgroundImage: "url(/headPic.jpg)" }}
+    >
+      <div className="hero-content text-center">
+        <div className="max-w-max">
+          <h1 className="text-[1.4vmax]">
+            Gallery | Machine learning enthusiast with lots of hobbies.
+          </h1>
+          <h2 className="text-[5vmax]">Panyawut Piyasirinanan</h2>
         </div>
-    )
+      </div>
+    </div>
+  );
 };
 
 export default Head;

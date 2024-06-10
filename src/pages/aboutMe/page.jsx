@@ -1,61 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import aboutTopics from '../../data/aboutData';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'; // Import icons from react-icons/fa
+// src\pages\aboutMe\page.jsx
+import React, { useState } from "react";
+import aboutTopics from "../../data/aboutData";
 
 const About = () => {
-  const [hoverSection, setHoverSection] = useState(null);
-
-  const handleMouseEnter = (section) => {
-    setHoverSection(section);
-  };
-
-  const handleMouseLeave = () => {
-    setHoverSection(null);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest('.accordion-item')) {
-        setHoverSection(null);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
+  const [hoveredIcon, setHoveredIcon] = useState(null);
 
   return (
-    <div className="overlay">
-      <h2 className="text-[3vmax] pr-9">About Me</h2>
-      <div className="accordion">
-        {aboutTopics.map(({ title, description, icons, links }, index) => (
-          <div
-            key={title}
-            className="accordion-item mt-4 cursor-pointer relative"
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="flex items-center align-bottom">
-              <p className="text-lg">{title}</p>
-              {hoverSection === index && (
+    <div id="about" className="hero min-h-screen">
+      <div className="hero-content flex w-full">
+        <h1 className="text-[3vmax]">About Me</h1>
+        <div className="divider divider-horizontal"></div>
+        <div>
+          {aboutTopics.map(({ title, description, icons, links }, index) => (
+            <div key={title} tabIndex={index} className="collapse group">
+              <div className="collapse-title text-xl font-medium flex justify-between">
+                <h2 className="hover-text-info group-focus:text-info">
+                  {title}
+                </h2>
                 <div className="icons-container">
-                  {icons && icons.map((Icon, i) => (
-                    <a key={i} href={links[i]} target="_blank" rel="noopener noreferrer">
-                      <Icon className="text-offwhite hover:text-dark" />
-                    </a>
-                  ))}
+                  {icons &&
+                    icons.map((Icon, i) => (
+                      <a
+                        key={i}
+                        href={links[i]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover-text-info"
+                      >
+                        <Icon className="icon" />
+                      </a>
+                    ))}
                 </div>
-              )}
-            </div>
-            {hoverSection === index && (
-              <div className={`accordion-content transition duration-500 ease-in-out ${hoverSection === index ? 'opacity-100' : 'opacity-0'}`}>
-              <p className="transition duration-500 ease-in-out">{description}</p>
               </div>
-            )}
-          </div>
-        ))}
+
+              <div className="collapse-content">
+                {description && typeof description === "string" ? (
+                  <div dangerouslySetInnerHTML={{ __html: description }} />
+                ) : (
+                  description.map((item, i) => (
+                    <div key={i}>
+                      <div className="skillcollapse skillcollapse-open">
+                        <h3 className="skillcollapse-title">{item.category}</h3>
+                        <div className="skillcollapse-content py-1">
+                          <div className="flex items-center">
+                            {item.icons.map((Icon, j) => (
+                              <div
+                                key={j}
+                                className="relative flex items-center"
+                                onMouseEnter={() =>
+                                  setHoveredIcon(`${item.category}-${j}`)
+                                }
+                                onMouseLeave={() => setHoveredIcon(null)}
+                              >
+                                <Icon className="iconSm hover-text-accent" />
+                                {hoveredIcon === `${item.category}-${j}` && (
+                                  <div
+                                    className={`mr-4 ${
+                                      hoveredIcon === `${item.category}-${j}`
+                                        ? "fade-in"
+                                        : "fade-out"
+                                    }`}
+                                  >
+                                    {item.iconName[j]}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

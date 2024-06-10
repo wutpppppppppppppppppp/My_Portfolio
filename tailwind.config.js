@@ -1,27 +1,17 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from "daisyui";
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    './components/**/*.{js,ts,jsx,tsx}',
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Averia Sans Libre', 'sans-serif'], // Example custom font
-        serif: ['Averia Serif Libre', 'serif'], // Example custom font
-      },
-    },
-    colors: {
-      transparent:'transparent',
-      black:'black',
-      white: 'white',
-      dark: '#272829',
-      gray: '#61677A',
-      ash: '#D8D9DA',
-      offwhite: '#FFF6E0',
-    },
+  plugins: [daisyui],
+  daisyui: {
+    base: true, // applies background color and foreground color for root element by default
+    styled: true, // include daisyUI colors and design decisions for all components
+    utils: true, // adds responsive and modifier utility classes
+    prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
   },
-  plugins: [],
-}
-
+};
