@@ -113,14 +113,6 @@ const experienceData = [
     links: "https://github.com/wutpppppppppppppppppp/handymouse",
     videoUrl: "",
   },
-  {
-    title: "Photographing",
-    description: "I love taking photos",
-    ImageUrl: "photograph.jpg",
-    icons: [],
-    links: "",
-    videoUrl: "",
-  },
 ];
 
 export default experienceData;
